@@ -104,6 +104,7 @@
 
                     if (result2.Succeeded)
                     {
+                        await this.userManager.AddToRoleAsync(user, "Customer");
                         return this.RedirectToAction("Index", "Home");
                     }
 
