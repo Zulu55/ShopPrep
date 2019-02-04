@@ -1,10 +1,13 @@
 ﻿namespace ShopPrep.Web.Controllers.API
 {
+    using System;
     using Data;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
-    using System;
 
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[Controller]")]
     public class ProductsController : Controller
     {

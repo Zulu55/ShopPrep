@@ -1,21 +1,29 @@
 ﻿namespace ShopPrep.Web.Controllers
 {
+    using System;
+    using System.IdentityModel.Tokens.Jwt;
     using System.Linq;
+    using System.Security.Claims;
+    using System.Text;
     using System.Threading.Tasks;
     using Common.Models;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.IdentityModel.Tokens;
     using Models;
 
     public class AccountController : Controller
     {
         private readonly SignInManager<User> signInManager;
         private readonly UserManager<User> userManager;
+        private readonly IConfiguration configuration;
 
-        public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
+        public AccountController(SignInManager<User> signInManager, UserManager<User> userManager, IConfiguration configuration)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
+            this.configuration = configuration;
         }
 
         public IActionResult Login()
@@ -181,6 +189,48 @@
             }
 
             return this.View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var user = await this.userManager.FindByNameAsync(model.Username);
+                if (user != null)
+                {
+                    var result = await this.signInManager.CheckPasswordSignInAsync(
+                        user,
+                        model.Password,
+                        false);
+                    if (result.Succeeded)
+                    {
+                        var claims = new[]
+                        {
+                            new Claim(JwtRegisteredClaimNames.Sub, user.Email),
+                            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                        };
+
+                        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this.configuration["Tokens:Key"]));
+                        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                        var token = new JwtSecurityToken(
+                            this.configuration["Tokens:Issuer"],
+                            this.configuration["Tokens:Audience"],
+                            claims,
+                            expires: DateTime.UtcNow.AddDays(15),
+                            signingCredentials: credentials);
+                        var results = new
+                        {
+                            token = new JwtSecurityTokenHandler().WriteToken(token),
+                            expiration = token.ValidTo
+                        };
+
+                        return this.Created(string.Empty, results);
+                    }
+                }
+            }
+
+            return this.BadRequest();
         }
     }
 }
