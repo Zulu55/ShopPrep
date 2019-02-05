@@ -1,5 +1,6 @@
 ﻿namespace ShopPrep.Web
 {
+    using System.IO;
     using System.Text;
     using Common.Models;
     using Data;
@@ -11,7 +12,9 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.FileProviders;
     using Microsoft.IdentityModel.Tokens;
+    using ShopPrep.Web.Helpers;
 
     public class Startup
     {
@@ -57,12 +60,18 @@
 
             services.AddScoped<IRepository, Repository>();
 
+            services.AddScoped<IUserHelper, UserHelper>();
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddSingleton<IFileProvider>(
+                new PhysicalFileProvider(
+                Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
