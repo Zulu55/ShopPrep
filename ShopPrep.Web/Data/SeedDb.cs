@@ -1,6 +1,7 @@
 ﻿namespace ShopPrep.Web.Data
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
     using Common.Models;
@@ -28,6 +29,22 @@
             await this.CheckRole("Admin");
             await this.CheckRole("Customer");
 
+            if (!this.context.Countries.Any())
+            {
+                var cities = new List<City>();
+                cities.Add(new City { Name = "Medellín" });
+                cities.Add(new City { Name = "Bogotá" });
+                cities.Add(new City { Name = "Calí" });
+
+                this.context.Countries.Add(new Country
+                {
+                    Cities = cities,
+                    Name = "Colombia"
+                });
+
+                await this.context.SaveChangesAsync();
+            }
+
             var user = await this.userManager.FindByEmailAsync("jzuluaga55@gmail.com");
             if (user == null)
             {
@@ -36,7 +53,12 @@
                     FirstName = "Juan",
                     LastName = "Zuluaga",
                     Email = "jzuluaga55@gmail.com",
-                    UserName = "jzuluaga55@gmail.com"
+                    UserName = "jzuluaga55@gmail.com",
+                    Address = "Calle Luna Calle Sol",
+                    PhoneNumber = "350 634 2747",
+                    CityId = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault().Id,
+                    City = this.context.Countries.FirstOrDefault().Cities.FirstOrDefault()
+
                 };
 
                 var result = await this.userManager.CreateAsync(user, "123456");
