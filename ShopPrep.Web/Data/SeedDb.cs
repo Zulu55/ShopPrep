@@ -68,6 +68,8 @@
                 }
 
                 await this.userManager.AddToRoleAsync(user, "Admin");
+                var token = await this.userManager.GenerateEmailConfirmationTokenAsync(user);
+                await this.userManager.ConfirmEmailAsync(user, token);
             }
 
             var isInRole = await this.userManager.IsInRoleAsync(user, "Admin");

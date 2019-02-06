@@ -13,6 +13,7 @@
     using Microsoft.IdentityModel.Tokens;
     using Models;
     using ShopPrep.Web.Data;
+    using ShopPrep.Web.Helpers;
 
     public class AccountController : Controller
     {
@@ -20,17 +21,20 @@
         private readonly UserManager<User> userManager;
         private readonly IConfiguration configuration;
         private readonly IRepository repository;
+        private readonly IMailHelper mailHelper;
 
         public AccountController(
             SignInManager<User> signInManager, 
             UserManager<User> userManager, 
             IConfiguration configuration, 
-            IRepository repository)
+            IRepository repository,
+            IMailHelper mailHelper)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
             this.configuration = configuration;
             this.repository = repository;
+            this.mailHelper = mailHelper;
         }
 
         public IActionResult Login()
@@ -106,7 +110,6 @@
                         PhoneNumber = model.PhoneNumber,
                         CityId = model.CityId,
                         City = city
-
                     };
 
                     var result = await this.userManager.CreateAsync(user, model.Password);
@@ -116,19 +119,17 @@
                         return this.View(model);
                     }
 
-                    var result2 = await this.signInManager.PasswordSignInAsync(
-                        model.Username,
-                        model.Password,
-                        true,
-                        false);
-
-                    if (result2.Succeeded)
+                    var myToken = await this.userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var tokenLink = this.Url.Action("ConfirmEmail", "Account", new
                     {
-                        await this.userManager.AddToRoleAsync(user, "Customer");
-                        return this.RedirectToAction("Index", "Home");
-                    }
+                        userid = user.Id,
+                        token = myToken
+                    }, protocol: HttpContext.Request.Scheme);
 
-                    this.ModelState.AddModelError(string.Empty, "The user couldn't be login.");
+                    this.mailHelper.SendMail(model.Username, "Email confirmation", $"<h1>Email Confirmation</h1>" +
+                        $"To allow the user, " +
+                        $"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
+                    this.ViewBag.Message = "The instructions to allow your user has been sent to email.";
                     return this.View(model);
                 }
 
@@ -283,6 +284,28 @@
         {
             var country = await this.repository.GetCountryAsync(countryId);
             return this.Json(country.Cities.OrderBy(c => c.Name));
+        }
+
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
+            {
+                return this.NotFound();
+            }
+
+            var user = await this.userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return this.NotFound();
+            }
+
+            var result = await this.userManager.ConfirmEmailAsync(user, token);
+            if (!result.Succeeded)
+            {
+                return this.NotFound();
+            }
+
+            return View();
         }
     }
 }
