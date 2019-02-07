@@ -6,14 +6,14 @@
     using System.Security.Claims;
     using System.Text;
     using System.Threading.Tasks;
-    using Common.Models;
+    using Data;
+    using Data.Entities;
+    using Helpers;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Configuration;
     using Microsoft.IdentityModel.Tokens;
     using Models;
-    using ShopPrep.Web.Data;
-    using ShopPrep.Web.Helpers;
 
     public class AccountController : Controller
     {
@@ -24,9 +24,9 @@
         private readonly IMailHelper mailHelper;
 
         public AccountController(
-            SignInManager<User> signInManager, 
-            UserManager<User> userManager, 
-            IConfiguration configuration, 
+            SignInManager<User> signInManager,
+            UserManager<User> userManager,
+            IConfiguration configuration,
             IRepository repository,
             IMailHelper mailHelper)
         {

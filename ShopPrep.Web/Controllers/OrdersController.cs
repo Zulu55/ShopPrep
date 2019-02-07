@@ -5,10 +5,10 @@
     using System.Linq;
     using System.Threading.Tasks;
     using Data;
+    using Data.Entities;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
-    using ShopPrep.Common.Models;
-    using ShopPrep.Web.Models;
+    using Models;
 
     public class OrdersController : Controller
     {

@@ -2,8 +2,8 @@
 {
     using System.IO;
     using System.Threading.Tasks;
-    using Common.Models;
     using Data;
+    using Data.Entities;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;

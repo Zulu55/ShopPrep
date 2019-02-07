@@ -1,7 +1,7 @@
 ﻿namespace ShopPrep.Web.Helpers
 {
     using System.Threading.Tasks;
-    using Common.Models;
+    using Data.Entities;
     using Microsoft.AspNetCore.Identity;
 
     public class UserHelper : IUserHelper

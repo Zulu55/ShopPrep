@@ -1,8 +1,8 @@
 ﻿namespace ShopPrep.Web.Controllers
 {
     using System.Threading.Tasks;
-    using Common.Models;
     using Data;
+    using Data.Entities;
     using Microsoft.AspNetCore.Mvc;
     using Models;
 

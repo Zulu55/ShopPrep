@@ -1,7 +1,7 @@
 ﻿namespace ShopPrep.Web.Models
 {
     using System.ComponentModel.DataAnnotations;
-    using Common.Models;
+    using Data.Entities;
     using Microsoft.AspNetCore.Http;
 
     public class ProductViewModel : Product

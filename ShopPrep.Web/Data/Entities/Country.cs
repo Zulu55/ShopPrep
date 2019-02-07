@@ -1,4 +1,4 @@
-﻿namespace ShopPrep.Common.Models
+﻿namespace ShopPrep.Web.Data.Entities
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;

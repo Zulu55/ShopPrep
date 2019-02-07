@@ -1,4 +1,4 @@
-﻿namespace ShopPrep.Common.Models
+﻿namespace ShopPrep.Web.Data.Entities
 {
     using Microsoft.AspNetCore.Identity;
     using System.ComponentModel.DataAnnotations;

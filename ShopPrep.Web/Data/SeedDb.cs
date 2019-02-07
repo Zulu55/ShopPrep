@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Common.Models;
+    using Data.Entities;
     using Microsoft.AspNetCore.Identity;
 
     public class SeedDb

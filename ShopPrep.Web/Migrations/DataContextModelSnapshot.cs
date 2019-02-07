@@ -129,7 +129,7 @@ namespace ShopPrep.Web.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.City", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.City", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -148,7 +148,7 @@ namespace ShopPrep.Web.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.Country", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -163,7 +163,7 @@ namespace ShopPrep.Web.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.Order", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -182,7 +182,7 @@ namespace ShopPrep.Web.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.OrderDetail", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.OrderDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -205,7 +205,7 @@ namespace ShopPrep.Web.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.OrderDetailTemp", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.OrderDetailTemp", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -228,7 +228,7 @@ namespace ShopPrep.Web.Migrations
                     b.ToTable("OrderDetailTemps");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.Product", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -260,7 +260,7 @@ namespace ShopPrep.Web.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.User", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.User", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -332,7 +332,7 @@ namespace ShopPrep.Web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.User")
+                    b.HasOne("ShopPrep.Web.Data.Entities.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -340,7 +340,7 @@ namespace ShopPrep.Web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.User")
+                    b.HasOne("ShopPrep.Web.Data.Entities.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -353,7 +353,7 @@ namespace ShopPrep.Web.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("ShopPrep.Common.Models.User")
+                    b.HasOne("ShopPrep.Web.Data.Entities.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -361,58 +361,58 @@ namespace ShopPrep.Web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.User")
+                    b.HasOne("ShopPrep.Web.Data.Entities.User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.City", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.City", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.Country")
+                    b.HasOne("ShopPrep.Web.Data.Entities.Country")
                         .WithMany("Cities")
                         .HasForeignKey("CountryId");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.Order", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.Order", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.User", "User")
+                    b.HasOne("ShopPrep.Web.Data.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.OrderDetail", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.OrderDetail", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.Order")
+                    b.HasOne("ShopPrep.Web.Data.Entities.Order")
                         .WithMany("Items")
                         .HasForeignKey("OrderId");
 
-                    b.HasOne("ShopPrep.Common.Models.Product", "Product")
+                    b.HasOne("ShopPrep.Web.Data.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.OrderDetailTemp", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.OrderDetailTemp", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.Product", "Product")
+                    b.HasOne("ShopPrep.Web.Data.Entities.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId");
 
-                    b.HasOne("ShopPrep.Common.Models.User", "User")
+                    b.HasOne("ShopPrep.Web.Data.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.Product", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.Product", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.User", "User")
+                    b.HasOne("ShopPrep.Web.Data.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
                 });
 
-            modelBuilder.Entity("ShopPrep.Common.Models.User", b =>
+            modelBuilder.Entity("ShopPrep.Web.Data.Entities.User", b =>
                 {
-                    b.HasOne("ShopPrep.Common.Models.City", "City")
+                    b.HasOne("ShopPrep.Web.Data.Entities.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade);

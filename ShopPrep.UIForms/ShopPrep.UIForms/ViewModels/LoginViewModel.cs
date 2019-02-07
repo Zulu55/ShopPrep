@@ -2,6 +2,7 @@
 {
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
+    using ShopPrep.UIForms.Views;
     using Xamarin.Forms;
 
     public class LoginViewModel
@@ -11,6 +12,12 @@
         public string Password { get; set; }
 
         public ICommand LoginCommand => new RelayCommand(this.Login);
+
+        public LoginViewModel()
+        {
+            this.Email = "jzuluaga55@gmail.com";
+            this.Password = "123456";
+        }
 
         private async void Login()
         {
@@ -32,7 +39,8 @@
                 return;
             }
 
-            await Application.Current.MainPage.DisplayAlert("Ok", "Fuck yeah!!!", "Accept");
+            MainViewModel.GetInstance().Products = new ProductsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
         }
     }
 }

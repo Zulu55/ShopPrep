@@ -1,6 +1,6 @@
 ﻿namespace ShopPrep.Web.Data
 {
-    using Common.Models;
+    using Data.Entities;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 

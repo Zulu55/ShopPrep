@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Common.Models;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Models;
+    using ShopPrep.Web.Data.Entities;
 
     public interface IRepository
     {
