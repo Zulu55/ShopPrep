@@ -40,7 +40,10 @@
             var response = await this.apiService.GetListAsync<Product>(
                 "https://shopprep.azurewebsites.net",
                 "/api",
-                "/Products");
+                "/Products",
+                "bearer",
+                MainViewModel.GetInstance().Token.Token);
+
             if (!response.IsSuccess)
             {
                 await Application.Current.MainPage.DisplayAlert(
