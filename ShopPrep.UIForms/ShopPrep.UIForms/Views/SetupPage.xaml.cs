@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace ShopPrep.UIForms.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoginView : ContentPage
+    public partial class SetupPage : ContentPage
     {
-        public LoginView()
+        public SetupPage()
         {
             InitializeComponent();
         }

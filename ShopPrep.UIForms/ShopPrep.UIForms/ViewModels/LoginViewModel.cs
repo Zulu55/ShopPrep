@@ -83,7 +83,7 @@
 
             this.IsRunning = false;
             this.IsEnabled = true;
-            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+            Application.Current.MainPage = new MasterPage();
         }
     }
 }

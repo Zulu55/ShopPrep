@@ -4,9 +4,9 @@
     using Xamarin.Forms.Xaml;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProductsPage : ContentPage
+    public partial class MenuPage : ContentPage
     {
-        public ProductsPage()
+        public MenuPage()
         {
             InitializeComponent();
         }
