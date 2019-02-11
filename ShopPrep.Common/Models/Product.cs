@@ -20,6 +20,8 @@
 
         public double Stock { get; set; }
 
+        public string UserEmail { get; set; }
+
         public string ImageFullPath
         {
             get

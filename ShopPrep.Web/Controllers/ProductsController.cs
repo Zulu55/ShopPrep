@@ -69,8 +69,7 @@
                 }
 
                 var product = await this.ToProduct(view, path);
-                this.repository.AddProduct(product);
-                await this.repository.SaveAllAsync();
+                await this.repository.AddProductAsync(product);
                 return RedirectToAction(nameof(Index));
             }
 
@@ -149,8 +148,7 @@
                     }
 
                     var product = await this.ToProduct(view, path);
-                    this.repository.UpdateProduct(product);
-                    await this.repository.SaveAllAsync();
+                    await this.repository.UpdateProductAsync(product);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -189,8 +187,7 @@
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = this.repository.GetProduct(id);
-            this.repository.RemoveProduct(product);
-            await this.repository.SaveAllAsync();
+            await this.repository.RemoveProductAsync(product);
             return RedirectToAction(nameof(Index));
         }
     }

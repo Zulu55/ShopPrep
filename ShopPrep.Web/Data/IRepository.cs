@@ -14,7 +14,7 @@
 
         Task AddItemToOrderAsync(AddItemViewModel model, string userName);
 
-        void AddProduct(Product product);
+        Task<Product> AddProductAsync(Product product);
 
         Task<bool> ConfirmOrderAsync(string userName);
 
@@ -55,7 +55,7 @@
 
         Task RemoveCountryAsync(Country country);
 
-        void RemoveProduct(Product product);
+        Task RemoveProductAsync(Product product);
 
         Task<bool> SaveAllAsync();
 
@@ -63,6 +63,6 @@
 
         Task UpdateCountryAsync(Country country);
 
-        void UpdateProduct(Product product);
+        Task<Product> UpdateProductAsync(Product product);
     }
 }

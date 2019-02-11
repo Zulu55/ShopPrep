@@ -23,7 +23,7 @@
 
         public IEnumerable<Product> GetProducts()
         {
-            return this.context.Products.OrderBy(p => p.Name);
+            return this.context.Products.Include(p => p.User).OrderBy(p => p.Name);
         }
 
         public Product GetProduct(int id)
@@ -31,19 +31,33 @@
             return this.context.Products.Include(p => p.User).Where(p => p.Id == id).FirstOrDefault();
         }
 
-        public void AddProduct(Product product)
+        public async Task<Product> AddProductAsync(Product product)
         {
-            this.context.Products.Add(product);
+            try
+            {
+                this.context.Products.Add(product);
+                await this.context.SaveChangesAsync();
+                return product;
+
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                return null;
+            }
         }
 
-        public void UpdateProduct(Product product)
+        public async Task<Product> UpdateProductAsync(Product product)
         {
             this.context.Update(product);
+            await this.context.SaveChangesAsync();
+            return product;
         }
 
-        public void RemoveProduct(Product product)
+        public async Task RemoveProductAsync(Product product)
         {
             this.context.Products.Remove(product);
+            await this.context.SaveChangesAsync();
         }
 
         public async Task<bool> SaveAllAsync()
