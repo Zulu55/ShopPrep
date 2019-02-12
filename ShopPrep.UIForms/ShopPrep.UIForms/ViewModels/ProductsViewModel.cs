@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows.Input;
     using Common.Models;
     using Common.Services;
@@ -11,10 +12,10 @@
     public class ProductsViewModel : BaseViewModel
     {
         private readonly ApiService apiService;
-        private ObservableCollection<Product> products;
+        private ObservableCollection<ProductItemViewModel> products;
         private bool isRefreshing;
 
-        public ObservableCollection<Product> Products
+        public ObservableCollection<ProductItemViewModel> Products
         {
             get => this.products;
             set => this.SetValue(ref this.products, value);
@@ -55,7 +56,18 @@
             }
 
             var products = (List<Product>)response.Result;
-            this.Products = new ObservableCollection<Product>(products);
+            this.Products = new ObservableCollection<ProductItemViewModel>(products.Select(p => new ProductItemViewModel
+            {
+                Id = p.Id,
+                ImageUrl = p.ImageUrl,
+                IsAvailabe = p.IsAvailabe,
+                LastPurchase = p.LastPurchase,
+                LastSale = p.LastSale,
+                Name = p.Name,
+                Price = p.Price,
+                Stock = p.Stock,
+                UserEmail = p.UserEmail
+            }).ToList());
             this.IsRefreshing = false;
         }
     }

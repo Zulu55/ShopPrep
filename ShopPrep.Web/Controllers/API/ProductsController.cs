@@ -10,7 +10,7 @@
     using ShopPrep.Web.Data.Entities;
     using ShopPrep.Web.Helpers;
 
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[Controller]")]
     public class ProductsController : Controller
     {

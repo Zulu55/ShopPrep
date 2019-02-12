@@ -79,6 +79,7 @@
             var token = (TokenResponse)response.Result;
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.Token = token;
+            mainViewModel.UserEmail = this.Email;
             mainViewModel.Products = new ProductsViewModel();
 
             this.IsRunning = false;

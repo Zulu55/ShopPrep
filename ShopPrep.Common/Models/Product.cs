@@ -28,7 +28,7 @@
             {
                 if (string.IsNullOrEmpty(this.ImageUrl))
                 {
-                    return null;
+                    return "noImage";
                 }
 
                 return $"https://shopprep.azurewebsites.net{this.ImageUrl.Substring(1)}";
