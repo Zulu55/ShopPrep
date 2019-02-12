@@ -1,9 +1,11 @@
 ﻿namespace ShopPrep.UIForms.ViewModels
 {
+    using System.Windows.Input;
+    using Common.Models;
     using Common.Services;
     using GalaSoft.MvvmLight.Command;
-    using ShopPrep.Common.Models;
-    using System.Windows.Input;
+    using Helpers;
+    using Newtonsoft.Json;
     using Views;
     using Xamarin.Forms;
 
@@ -25,6 +27,8 @@
             set => this.SetValue(ref this.isEnabled, value);
         }
 
+        public bool IsToggled { get; set; }
+
         public string Email { get; set; }
 
         public string Password { get; set; }
@@ -37,6 +41,7 @@
             this.Email = "jzuluaga55@gmail.com";
             this.Password = "123456";
             this.IsEnabled = true;
+            this.IsToggled = true;
         }
 
         private async void Login()
@@ -65,7 +70,7 @@
             var response = await this.apiService.GetTokenAsync(
                 "https://shopprep.azurewebsites.net",
                 "/Account",
-                "/CreateToken", 
+                "/CreateToken",
                 request);
 
             if (!response.IsSuccess)
@@ -81,6 +86,10 @@
             mainViewModel.Token = token;
             mainViewModel.UserEmail = this.Email;
             mainViewModel.Products = new ProductsViewModel();
+
+            Settings.IsRemember = this.IsToggled;
+            Settings.UserEmail = this.Email;
+            Settings.Token = JsonConvert.SerializeObject(token);
 
             this.IsRunning = false;
             this.IsEnabled = true;

@@ -1,6 +1,11 @@
 ﻿[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace ShopPrep.UIForms
 {
+    using Helpers;
+    using Newtonsoft.Json;
+    using ShopPrep.Common.Models;
+    using ShopPrep.UIForms.ViewModels;
+    using System;
     using Views;
     using Xamarin.Forms;
 
@@ -13,6 +18,20 @@ namespace ShopPrep.UIForms
         public App()
         {
             InitializeComponent();
+
+            if (Settings.IsRemember)
+            {
+                var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+                if (token.Expiration > DateTime.Now)
+                {
+                    var mainViewModel = MainViewModel.GetInstance();
+                    mainViewModel.Token = token;
+                    mainViewModel.UserEmail = Settings.UserEmail;
+                    mainViewModel.Products = new ProductsViewModel();
+                    this.MainPage = new MasterPage();
+                    return;
+                }
+            }
 
             this.MainPage = new NavigationPage(new LoginPage());
         }

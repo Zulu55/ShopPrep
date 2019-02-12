@@ -2,6 +2,7 @@
 {
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
+    using ShopPrep.UIForms.Helpers;
     using ShopPrep.UIForms.Views;
     using Xamarin.Forms;
 
@@ -22,7 +23,10 @@
                 case "SetupPage":
                     await App.Navigator.PushAsync(new SetupPage());
                     break;
-                default:
+                default:            
+                    Settings.IsRemember = false;
+                    Settings.Token = string.Empty;
+                    Settings.UserEmail = string.Empty;
                     Application.Current.MainPage = new NavigationPage(new LoginPage());
                     break;
             }
