@@ -48,13 +48,13 @@
         {
             if (string.IsNullOrEmpty(this.Email))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "You must enter an email.", "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.EmailMessage, Languages.Accept);
                 return;
             }
 
             if (string.IsNullOrEmpty(this.Password))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "You must enter a password.", "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.PasswordMessage, Languages.Accept);
                 return;
             }
 
@@ -77,7 +77,7 @@
             {
                 this.IsRunning = false;
                 this.IsEnabled = true;
-                await Application.Current.MainPage.DisplayAlert("Error", "Email or password incorrect.", "Accept");
+                await Application.Current.MainPage.DisplayAlert(Languages.Error, Languages.EmailOrPasswordIncorrect, Languages.Accept);
                 return;
             }
 
