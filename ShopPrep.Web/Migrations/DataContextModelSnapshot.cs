@@ -251,7 +251,8 @@ namespace ShopPrep.Web.Migrations
 
                     b.Property<double>("Stock");
 
-                    b.Property<string>("UserId");
+                    b.Property<string>("UserId")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -407,7 +408,8 @@ namespace ShopPrep.Web.Migrations
                 {
                     b.HasOne("ShopPrep.Web.Data.Entities.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ShopPrep.Web.Data.Entities.User", b =>
