@@ -6,6 +6,7 @@
     using Plugin.Media;
     using Plugin.Media.Abstractions;
     using ShopPrep.Common.Models;
+    using ShopPrep.UIForms.Helpers;
     using Xamarin.Forms;
 
     public class AddProductViewModel : BaseViewModel
@@ -73,12 +74,19 @@
             this.IsRunning = true;
             this.IsEnabled = false;
 
+            byte[] imageArray = null;
+            if (this.file != null)
+            {
+                imageArray = FilesHelper.ReadFully(this.file.GetStream());
+            }
+
             var product = new Product
             {
                 IsAvailabe = true,
                 Name = this.Name,
                 Price = price,
-                UserEmail = MainViewModel.GetInstance().UserEmail
+                UserEmail = MainViewModel.GetInstance().UserEmail,
+                ImageArray = imageArray
             };
 
             var response = await this.apiService.PostAsync(
