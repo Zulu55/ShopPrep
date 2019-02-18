@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ThreeWays.Forms.Views.TipPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             Title="Tip Calculator">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="5">
+            <Label
+                Text="Amount:">
+            </Label>
+            <Entry
+                Keyboard="Numeric"
+                Text="{Binding Amount, Mode=TwoWay}">
+            </Entry>
+            <Label
+                Text="Generosity:">
+            </Label>
+            <Slider
+                Minimum="0"
+                Maximum="100"
+                Value="{Binding Generosity, Mode=TwoWay}">
+            </Slider>
+            <Label
+                Text="Tip:">
+            </Label>
+            <Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Tip, Mode=TwoWay, StringFormat='{0:C2}'}">
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
