@@ -2399,6 +2399,9 @@ namespace ShopPrep.UIClassic.Android
 			// aapt resource value: 0x7f0800ad
 			public const int actions = 2131230893;
 			
+			// aapt resource value: 0x7f08009b
+			public const int activityIndicatorProgressBar = 2131230875;
+			
 			// aapt resource value: 0x7f08005d
 			public const int activity_chooser_view_content = 2131230813;
 			
@@ -2501,8 +2504,8 @@ namespace ShopPrep.UIClassic.Android
 			// aapt resource value: 0x7f08007e
 			public const int edit_query = 2131230846;
 			
-			// aapt resource value: 0x7f08009a
-			public const int emailText = 2131230874;
+			// aapt resource value: 0x7f080099
+			public const int emailText = 2131230873;
 			
 			// aapt resource value: 0x7f080030
 			public const int end = 2131230768;
@@ -2582,9 +2585,6 @@ namespace ShopPrep.UIClassic.Android
 			// aapt resource value: 0x7f080018
 			public const int line3 = 2131230744;
 			
-			// aapt resource value: 0x7f080099
-			public const int linearLayout1 = 2131230873;
-			
 			// aapt resource value: 0x7f08001d
 			public const int listMode = 2131230749;
 			
@@ -2594,14 +2594,14 @@ namespace ShopPrep.UIClassic.Android
 			// aapt resource value: 0x7f08009c
 			public const int loginButton = 2131230876;
 			
-			// aapt resource value: 0x7f0800b2
-			public const int masked = 2131230898;
+			// aapt resource value: 0x7f0800b6
+			public const int masked = 2131230902;
 			
 			// aapt resource value: 0x7f0800a3
 			public const int media_actions = 2131230883;
 			
-			// aapt resource value: 0x7f0800b0
-			public const int message = 2131230896;
+			// aapt resource value: 0x7f0800b4
+			public const int message = 2131230900;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2611,6 +2611,9 @@ namespace ShopPrep.UIClassic.Android
 			
 			// aapt resource value: 0x7f080028
 			public const int multiply = 2131230760;
+			
+			// aapt resource value: 0x7f0800b1
+			public const int nameTextView = 2131230897;
 			
 			// aapt resource value: 0x7f080093
 			public const int navigation_header_container = 2131230867;
@@ -2642,11 +2645,20 @@ namespace ShopPrep.UIClassic.Android
 			// aapt resource value: 0x7f08000b
 			public const int parent_matrix = 2131230731;
 			
-			// aapt resource value: 0x7f08009b
-			public const int passwordText = 2131230875;
+			// aapt resource value: 0x7f08009a
+			public const int passwordText = 2131230874;
 			
 			// aapt resource value: 0x7f08004d
 			public const int pin = 2131230797;
+			
+			// aapt resource value: 0x7f0800b2
+			public const int priceTextView = 2131230898;
+			
+			// aapt resource value: 0x7f0800b0
+			public const int productImageView = 2131230896;
+			
+			// aapt resource value: 0x7f0800b3
+			public const int productsListView = 2131230899;
 			
 			// aapt resource value: 0x7f080006
 			public const int progress_circular = 2131230726;
@@ -2852,8 +2864,8 @@ namespace ShopPrep.UIClassic.Android
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800b1
-			public const int visible = 2131230897;
+			// aapt resource value: 0x7f0800b5
+			public const int visible = 2131230901;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;
@@ -3086,19 +3098,25 @@ namespace ShopPrep.UIClassic.Android
 			public const int notification_template_part_time = 2130968631;
 			
 			// aapt resource value: 0x7f040038
-			public const int select_dialog_item_material = 2130968632;
+			public const int ProductRow = 2130968632;
 			
 			// aapt resource value: 0x7f040039
-			public const int select_dialog_multichoice_material = 2130968633;
+			public const int ProductsPage = 2130968633;
 			
 			// aapt resource value: 0x7f04003a
-			public const int select_dialog_singlechoice_material = 2130968634;
+			public const int select_dialog_item_material = 2130968634;
 			
 			// aapt resource value: 0x7f04003b
-			public const int support_simple_spinner_dropdown_item = 2130968635;
+			public const int select_dialog_multichoice_material = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int tooltip = 2130968636;
+			public const int select_dialog_singlechoice_material = 2130968636;
+			
+			// aapt resource value: 0x7f04003d
+			public const int support_simple_spinner_dropdown_item = 2130968637;
+			
+			// aapt resource value: 0x7f04003e
+			public const int tooltip = 2130968638;
 			
 			static Layout()
 			{
