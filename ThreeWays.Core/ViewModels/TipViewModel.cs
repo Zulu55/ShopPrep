@@ -1,8 +1,8 @@
 ﻿namespace ThreeWays.Core.ViewModels
 {
-    using System.Threading.Tasks;
     using MvvmCross.ViewModels;
     using Services;
+    using System.Threading.Tasks;
 
     public class TipViewModel : MvxViewModel
     {
@@ -16,10 +16,7 @@
         #region Properties
         public decimal SubTotal
         {
-            get
-            {
-                return this.subTotal;
-            }
+            get => this.subTotal;
             set
             {
                 this.subTotal = value;
@@ -30,10 +27,7 @@
 
         public decimal Tip
         {
-            get
-            {
-                return this.tip;
-            }
+            get => this.tip;
             set
             {
                 this.tip = value;
@@ -43,10 +37,7 @@
 
         public int Generosity
         {
-            get
-            {
-                return this.generosity;
-            }
+            get => this.generosity;
             set
             {
                 this.generosity = value;
