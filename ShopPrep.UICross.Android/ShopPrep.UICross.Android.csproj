@@ -63,6 +63,7 @@
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\LoginView.cs" />
+    <Compile Include="Views\ProductsView.cs" />
     <Compile Include="Views\SplashView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +102,9 @@
       <Version>6.2.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0" />
+    <PackageReference Include="Xamarin.FFImageLoading">
+      <Version>2.4.4.859</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\LoginPage.axml">
@@ -121,12 +125,21 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ProductRow.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ShopPrep.Common\ShopPrep.Common.csproj">
       <Project>{CE90C8A0-CF82-4D55-8590-B388CACB7F35}</Project>
       <Name>ShopPrep.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\ProductsPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
