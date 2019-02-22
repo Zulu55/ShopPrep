@@ -1,4 +1,4 @@
-﻿namespace ShopPrep.UIClassic.Android.Helpers
+﻿namespace ShopPrep.UICross.Android.Helpers
 {
     using global::Android.App;
     using global::Android.Content;

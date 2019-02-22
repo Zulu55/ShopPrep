@@ -39,6 +39,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             local:MvxBind="Text Password" />
+        <ProgressBar
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            local:MvxBind="Visibility Visibility(IsLoading)"
+            android:indeterminateOnly="true"
+            android:keepScreenOn="true"/>
         <Button
             android:text="Login"
             android:layout_width="match_parent"

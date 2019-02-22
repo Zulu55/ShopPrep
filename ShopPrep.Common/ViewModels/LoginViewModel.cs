@@ -1,10 +1,11 @@
 ﻿namespace ShopPrep.Common.ViewModels
 {
-    using MvvmCross.Commands;
-    using MvvmCross.Navigation;
-    using MvvmCross.ViewModels;
-    using ShopPrep.Common.Services;
     using System.Windows.Input;
+    using Interfaces;
+    using Models;
+    using MvvmCross.Commands;
+    using MvvmCross.ViewModels;
+    using Services;
 
     public class LoginViewModel : MvxViewModel
     {
@@ -12,26 +13,25 @@
         private string password;
         private MvxCommand loginCommand;
         private readonly IApiService apiService;
-        private readonly IMvxNavigationService navigationService;
+        private readonly IDialogService dialogService;
+        private bool isLoading;
+
+        public bool IsLoading
+        {
+            get => this.isLoading;
+            set => this.SetProperty(ref this.isLoading, value);
+        }
 
         public string Email
         {
             get => this.email;
-            set
-            {
-                this.email = value;
-                this.RaisePropertyChanged(() => this.Email);
-            }
+            set => this.SetProperty(ref this.email, value);
         }
 
         public string Password
         {
             get => this.password;
-            set
-            {
-                this.password = value;
-                this.RaisePropertyChanged(() => this.Password);
-            }
+            set => this.SetProperty(ref this.password, value);
         }
 
         public ICommand LoginCommand
@@ -43,18 +43,55 @@
             }
         }
 
-        public LoginViewModel(IApiService apiService, IMvxNavigationService navigationService)
+        public LoginViewModel(
+            IApiService apiService,
+            IDialogService dialogService)
         {
             this.apiService = apiService;
-            this.navigationService = navigationService;
+            this.dialogService = dialogService;
+
+            this.Email = "jzuluaga55@gmail.com";
+            this.Password = "123456";
+            this.IsLoading = false;
         }
 
-        private void DoLoginCommand()
+        private async void DoLoginCommand()
         {
             if (string.IsNullOrEmpty(this.Email))
             {
-
+                this.dialogService.Alert("Error", "You must enter an email.", "Accept");
+                return;
             }
+
+            if (string.IsNullOrEmpty(this.Email))
+            {
+                this.dialogService.Alert("Error", "You must enter a password.", "Accept");
+                return;
+            }
+
+            this.IsLoading = true;
+
+            var request = new TokenRequest
+            {
+                Password = this.Password,
+                Username = this.Email
+            };
+
+            var response = await this.apiService.GetTokenAsync(
+                "https://shopprep.azurewebsites.net",
+                "/Account",
+                "/CreateToken",
+                request);
+
+            if (!response.IsSuccess)
+            {
+                this.IsLoading = false;
+                this.dialogService.Alert("Error", "User or password incorrect.", "Accept");
+                return;
+            }
+
+            this.IsLoading = false;
+            this.dialogService.Alert("Ok", "Fuck yeah!", "Accept");
         }
     }
 }

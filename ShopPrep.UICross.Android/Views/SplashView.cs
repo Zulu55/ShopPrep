@@ -2,9 +2,7 @@
 {
     using global::Android.App;
     using global::Android.Content.PM;
-    using MvvmCross.Platforms.Android.Core;
     using MvvmCross.Platforms.Android.Views;
-    using ShopPrep.Common;
 
     [Activity(
         Label = "@string/app_name",
@@ -13,7 +11,7 @@
         Theme = "@style/Theme.Splash",
         NoHistory = true,
         ScreenOrientation = ScreenOrientation.Portrait)]
-    public class SplashView : MvxSplashScreenActivity<MvxAndroidSetup<App>, App>
+    public class SplashView : MvxSplashScreenActivity
     {
         public SplashView() : base(Resource.Layout.SplashPage)
         {

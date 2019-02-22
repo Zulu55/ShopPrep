@@ -1,9 +1,9 @@
 ﻿namespace ShopPrep.UICross.Android.Views
 {
+    using Common.ViewModels;
     using global::Android.App;
     using global::Android.OS;
     using MvvmCross.Platforms.Android.Views;
-    using ShopPrep.Common.ViewModels;
 
     [Activity(Label = "@string/app_name")]
     public class LoginView : MvxActivity<LoginViewModel>
