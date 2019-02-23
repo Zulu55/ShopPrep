@@ -1,11 +1,11 @@
 ﻿[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace ShopPrep.UIForms
 {
-    using Helpers;
-    using Newtonsoft.Json;
-    using ShopPrep.Common.Models;
-    using ShopPrep.UIForms.ViewModels;
     using System;
+    using Common.Helpers;
+    using Common.Models;
+    using Newtonsoft.Json;
+    using ShopPrep.UIForms.ViewModels;
     using Views;
     using Xamarin.Forms;
 

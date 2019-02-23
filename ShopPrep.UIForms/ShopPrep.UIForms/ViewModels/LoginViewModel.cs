@@ -1,12 +1,13 @@
 ﻿namespace ShopPrep.UIForms.ViewModels
 {
-    using System.Windows.Input;
+    using Views;
+    using Common.Helpers;
     using Common.Models;
     using Common.Services;
     using GalaSoft.MvvmLight.Command;
     using Helpers;
     using Newtonsoft.Json;
-    using Views;
+    using System.Windows.Input;
     using Xamarin.Forms;
 
     public class LoginViewModel : BaseViewModel
