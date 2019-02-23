@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -95,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ThreeWays.Forms\ThreeWays.Forms.csproj">
-      <Project>{42B8DD32-3CC6-4752-85CE-8A4C64D9527C}</Project>
+      <Project>{34032EAB-C9CD-4224-BCCF-0E21A3CC8E95}</Project>
       <Name>ThreeWays.Forms</Name>
     </ProjectReference>
   </ItemGroup>

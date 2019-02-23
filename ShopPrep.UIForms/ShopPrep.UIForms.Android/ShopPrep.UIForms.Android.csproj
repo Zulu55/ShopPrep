@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <NuGetPackageImportStamp>
@@ -100,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ShopPrep.UIForms\ShopPrep.UIForms.csproj">
-      <Project>{07C5F26F-6853-473F-A606-0AB0B7FC5340}</Project>
+      <Project>{4981FEDB-AB22-49E6-8D22-019E279A6E4A}</Project>
       <Name>ShopPrep.UIForms</Name>
     </ProjectReference>
   </ItemGroup>
