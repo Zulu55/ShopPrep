@@ -60,11 +60,8 @@
             );
 
             services.AddTransient<SeedDb>();
-
             services.AddScoped<IRepository, Repository>();
-
             services.AddScoped<IUserHelper, UserHelper>();
-
             services.AddScoped<IMailHelper, MailHelper>();
 
             services.Configure<CookiePolicyOptions>(options =>

@@ -7,6 +7,7 @@
     {
         private const string token = "token";
         private const string userEmail = "userEmail";
+        private const string products = "products";
         private const string isRemember = "isRemember";
         private static readonly string stringDefault = string.Empty;
         private static readonly bool boolDefault = false;
@@ -17,6 +18,12 @@
         {
             get => AppSettings.GetValueOrDefault(token, stringDefault);
             set => AppSettings.AddOrUpdateValue(token, value);
+        }
+
+        public static string Products
+        {
+            get => AppSettings.GetValueOrDefault(products, stringDefault);
+            set => AppSettings.AddOrUpdateValue(products, value);
         }
 
         public static string UserEmail
