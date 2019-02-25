@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{712EC07A-7EF1-4F57-8113-8284ECF321FB}</ProjectGuid>
+    <ProjectGuid>{9D3ACC75-7FEA-461D-91C2-537122616018}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{440aa056-593a-4519-8708-27081dee632f}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -83,6 +83,9 @@
     </Reference>
     <Reference Include="netstandard">
       <HintPath>..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />

@@ -1,10 +1,10 @@
-using MvvmCross.Binding.BindingContext;
-using MvvmCross.Platforms.Ios.Presenters.Attributes;
-using MvvmCross.Platforms.Ios.Views;
-using ShopPrep.Common.ViewModels;
-
 namespace ShopPrep.UICross.iOS.Views
 {
+    using Common.ViewModels;
+    using MvvmCross.Binding.BindingContext;
+    using MvvmCross.Platforms.Ios.Presenters.Attributes;
+    using MvvmCross.Platforms.Ios.Views;
+
     [MvxRootPresentation(WrapInNavigationController = true)]
     public partial class HomeView : MvxViewController<LoginViewModel>
     {

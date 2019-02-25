@@ -21,18 +21,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="445" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="118" y="230" width="85" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="422" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="116" y="230" width="87" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint id="446" firstItem="445" firstAttribute="top" secondItem="219" secondAttribute="bottom" constant="210"/>
-                            <constraint id="447" firstItem="445" firstAttribute="leading" secondItem="223" secondAttribute="leadingMargin" constant="102"/>
-                            <constraint id="448" firstAttribute="trailingMargin" secondItem="445" secondAttribute="trailing" constant="101"/>
-                            <constraint id="449" firstItem="220" firstAttribute="top" secondItem="445" secondAttribute="bottom" constant="229"/>
+                            <constraint id="423" firstItem="422" firstAttribute="top" secondItem="219" secondAttribute="bottom" constant="210"/>
+                            <constraint id="424" firstItem="422" firstAttribute="leading" secondItem="223" secondAttribute="leadingMargin" constant="100"/>
+                            <constraint id="425" firstAttribute="trailingMargin" secondItem="422" secondAttribute="trailing" constant="101"/>
+                            <constraint id="426" firstItem="220" firstAttribute="top" secondItem="422" secondAttribute="bottom" constant="229"/>
                         </constraints>
                     </view>
                 </viewController>
