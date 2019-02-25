@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using Common.Models;
     using Foundation;
+    using ShopPrep.UIClassic.iOS.Cells;
     using UIKit;
 
     public class ProductsDataSource : UITableViewSource
@@ -18,16 +19,15 @@
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            var cell = tableView.DequeueReusableCell(cellIdentifier) as UITableViewCell;
+            var cell = tableView.DequeueReusableCell(cellIdentifier) as ProductCell;
 
             if (cell == null)
             {
-                cell = new UITableViewCell(UITableViewCellStyle.Default, cellIdentifier);
+                cell = new ProductCell(cellIdentifier);
             }
 
             var product = products[indexPath.Row];
-            cell.TextLabel.Text = product.Name;
-            cell.ImageView.Image = UIImage.FromFile(product.ImageFullPath);
+            cell.UpdateCell(product.Name, $"{product.Price:C2}", UIImage.FromFile(product.ImageUrl));
 
             return cell;
         }

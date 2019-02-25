@@ -13,22 +13,12 @@
         public ProductCell(NSString cellId) : base(UITableViewCellStyle.Default, cellId)
         {
             this.SelectionStyle = UITableViewCellSelectionStyle.Gray;
-            this.ContentView.BackgroundColor = UIColor.FromRGB(254, 199, 101);
+
             this.imageView = new UIImageView();
-
-            this.nameLabel = new UILabel()
-            {
-                Font = UIFont.FromName("Cochin-BoldItalic", 18f),
-                TextColor = UIColor.FromRGB(255, 255, 255),
-                BackgroundColor = UIColor.Clear
-            };
-
+            this.nameLabel = new UILabel();
             this.priceLabel = new UILabel()
             {
-                Font = UIFont.FromName("AmericanTypewriter", 12f),
-                TextColor = UIColor.FromRGB(228, 79, 61),
-                TextAlignment = UITextAlignment.Center,
-                BackgroundColor = UIColor.Clear
+                TextAlignment = UITextAlignment.Right
             };
 
             this.ContentView.Add(this.nameLabel);
