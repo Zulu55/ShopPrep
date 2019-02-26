@@ -16,13 +16,22 @@ namespace ShopPrep.UICross.iOS.Views
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField EmailText { get; set; }
+        UIKit.UIButton Button { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITextField TextField { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (EmailText != null) {
-                EmailText.Dispose ();
-                EmailText = null;
+            if (Button != null) {
+                Button.Dispose ();
+                Button = null;
+            }
+
+            if (TextField != null) {
+                TextField.Dispose ();
+                TextField = null;
             }
         }
     }

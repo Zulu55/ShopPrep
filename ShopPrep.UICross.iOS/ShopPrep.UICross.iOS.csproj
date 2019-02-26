@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectGuid>{9D3ACC75-7FEA-461D-91C2-537122616018}</ProjectGuid>
+    <ProjectGuid>{77DAEB5A-F4F2-4215-A8E2-2FFF0D9A5955}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{440aa056-593a-4519-8708-27081dee632f}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -78,15 +78,6 @@
     <Reference Include="MvvmCross, Version=6.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmCross.6.2.3\lib\xamarinios10\MvvmCross.dll</HintPath>
     </Reference>
-    <Reference Include="MvvmCross.Plugin.Visibility, Version=6.2.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Plugin.Visibility.6.2.3\lib\xamarinios10\MvvmCross.Plugin.Visibility.dll</HintPath>
-    </Reference>
-    <Reference Include="netstandard">
-      <HintPath>..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\netstandard.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -140,9 +131,9 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShopPrep.Common\ShopPrep.Common.csproj">
-      <Project>{ce90c8a0-cf82-4d55-8590-b388cacb7f35}</Project>
-      <Name>ShopPrep.Common</Name>
+    <ProjectReference Include="..\ThreeWays.Core\ThreeWays.Core.csproj">
+      <Project>{FD22F466-A5FD-40CF-9868-E500D0A8C258}</Project>
+      <Name>ThreeWays.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
